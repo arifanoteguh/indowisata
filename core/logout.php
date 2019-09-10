@@ -1,0 +1,16 @@
+<?php
+	session_start();
+	if(isset($_SESSION['login_user'])){
+		unset($_SESSION);
+		session_destroy();
+		session_write_close();
+		header('location:../index.php');
+		die;
+	}elseif(isset($_SESSION['login_admin'])){
+		unset($_SESSION);
+		session_destroy();
+		session_write_close();
+		header('location:../admin/login.php');
+		die;
+	}
+?>
